@@ -1,14 +1,35 @@
-function GetCell()
+function setupGame()
 {
-    let cell = document.querySelectorAll('div');
-
-    cell.forEach(element => {
-        element.addEventListener('click', function()
+    const cells = document.querySelectorAll('div');
+    let currentPlayer = 'X';
+    
+    function switchPlayer()
+    {
+        if (currentPlayer === 'X')
         {
-            element.style.backgroundColor = 'red';
-            element.innerHTML = 'X';
+            currentPlayer = 'O';
+        }
+        else
+        {
+            currentPlayer = 'X';
+        }
+                    
+    }
+
+    cells.forEach(cell => {
+        cell.addEventListener('click', function(event)
+        {
+            if(event.button === 0 && cell.textContent === '')
+            {
+                cell.textContent = currentPlayer;
+
+                switchPlayer();
+            }
         });
     });
 }
 
-GetCell();
+document.addEventListener('DOMContentLoaded', function()
+{
+    setupGame();
+});
