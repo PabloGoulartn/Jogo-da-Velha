@@ -46,3 +46,11 @@ main{
 .bottom-right{
     border-bottom-right-radius: 10px;
 }
+
+.finish-game
+{
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    translate: -50% -50%;
+}
