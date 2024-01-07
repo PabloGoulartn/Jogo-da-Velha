@@ -2,7 +2,13 @@ function setupGame()
 {
     const cells = document.querySelectorAll('div');
     let currentPlayer = 'X';
-    
+
+    function clearTextContent(){
+        setTimeout( function(){
+            document.querySelector('.finish-game').textContent = '';
+        }, 1000);
+    }
+
     function switchPlayer()
     {
         if (currentPlayer === 'X')
@@ -12,8 +18,7 @@ function setupGame()
         else
         {
             currentPlayer = 'X';
-        }
-                    
+        }       
     }
 
     function checkWinner()
@@ -32,6 +37,7 @@ function setupGame()
             cells.forEach(cell => {
                 cell.textContent = '';
             });
+            clearTextContent();
         }
         if (Array.from(cells).every(cell => cell.textContent !== ''))
         {
@@ -39,6 +45,7 @@ function setupGame()
             cells.forEach(cell => {
                 cell.textContent = '';
             });
+            clearTextContent();
         }
     }
 
